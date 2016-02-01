@@ -8,6 +8,8 @@ This game contains achievements, a tournament, different power ups, as well as n
 
 2. Download the zip file containg the code and assets here: https://www.dropbox.com/s/uf1fjf58n82s472/PongWorldTour1_5.zip?dl=0
  
-3. Open PongWorldTour1_5.pde to play!
+3. Open PongWorldTour1_5.pde to play
  
-4. Have fun!
+4. Click the play button in the top left corner 
+
+5. Have fun!
