@@ -2,6 +2,9 @@
 Pong expansion game created using Processing.
 This game contains achievements, a tournament, different power ups, as well as new backgrounds and unlockable content.
 #
+
+![Alt screenshot](http://benjaminmiller.co/img/worldtour.png)
+
 ### --- How to play Pong World Tour ---
 
 1. Download Processing 3.0 or higher. https://processing.org/download/?processing
