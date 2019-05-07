@@ -30,7 +30,7 @@ PImage introScreen,bullet,cdArgentina,cdBrazil,cdFrance,cdPortugal;
 PImage ArgentinaIcon, BrazilIcon, FranceIcon, PortugalIcon;
 PImage ArgentinaWin, BrazilWin, FranceWin, PortugalWin;
 
-// Permanent values
+//THINGS THAT WILL NEVER BE RESTARTED
 int lifeGoals = 0;
 int lifeLowes = 0;
 int lifePowers = 0;
@@ -40,7 +40,7 @@ int lifeLosses = 0;
 int lifeChamps = 0;
 int lifeAchievements = 0;
 
-// Achievements
+//ACHIEVEMENTS *** NEVER TO BE RESET ** - Pain is temporary, Pride is forever
 boolean dvsg = false;
 boolean makeitrain = false;
 boolean blowout = false;
@@ -58,7 +58,7 @@ boolean flawless = true;
 boolean offensivethreat = false;
 boolean smartmove = false;
 
-//for tournament mode
+//for dd
 boolean playaschina = false;
 boolean playascanada = false;
 boolean playasitaly = false;
@@ -71,7 +71,7 @@ boolean playasrussia = false;
 //One time fix win/loss/tie
 boolean winorlose = false;
 
-//Testing variables
+//Testing tings
 boolean serbia = false;
 boolean serbia2 = false;
 int slovakia = 0;
@@ -92,7 +92,7 @@ boolean selectLast = true;
 
 
 
-//In game tutorial checker
+//In GAME TUTORIAL :)
 boolean maceroni = false;
 boolean nines = true;
 
@@ -279,7 +279,7 @@ float jab = 0;
 float tub = 0;
 
 //New country tournament entry
-boolean newENT = false;
+boolean chubby = false;
 
 
 void setup(){
@@ -1037,8 +1037,8 @@ if(isitflawed==false){flawless = true;if(bcd==false){lifeAchievements+=1;bcd=tru
  else if(countryMix[6]==user){pos=6;}
  else if(countryMix[7]==user){pos=7;}
  else{
- if(newENT==false){
- pos = round(random(1,8));newENT=true;}
+ if(chubby==false){
+ pos = round(random(1,8));chubby=true;}
  
  if(user=="Argentina"){countryMix[pos]="Argentina";}
  else if(user=="Brazil"){countryMix[pos]="Brazil";}
@@ -2478,3 +2478,4 @@ winorlose=false;}
 }
 
 void mouseReleased(){bingo=0;if(badBOI==3){badBOI = 9;}}
+
