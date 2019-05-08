@@ -324,211 +324,215 @@ Portugal = loadImage("portugal.png");PortugalSmall = loadImage("PortugalSmall.pn
 cdArgentina = loadImage("cdArgentina.png");cdBrazil = loadImage("cdBrazil.png");cdFrance = loadImage("cdFrance.png");cdPortugal = loadImage("cdPortugal.png");
 ArgentinaIcon = loadImage("ArgentinaIcon.png");BrazilIcon = loadImage("BrazilIcon.png");FranceIcon = loadImage("FranceIcon.png");PortugalIcon = loadImage("PortugalIcon.png");
 ArgentinaWin = loadImage("ArgentinaWin.png");BrazilWin = loadImage("BrazilWin.png");FranceWin = loadImage("FranceWin.png");PortugalWin = loadImage("PortugalWin.png");
+
 //Set Screen size
 size(650,500);}
 
 void draw(){
 
   
-if(screenNum==2){
-menu=false;
+if (screenNum == 2) {
+  // Credits Screen
+  menu = false;
   image(credits,0,0);
-readcredits = true;if(stu==false){lifeAchievements+=1;stu=true;}}
-if(screenNum==7){
-menu=false;
-image(instructions,0,0);
-smartmove = true;
-if(def==false){lifeAchievements+=1;def=true;}
+  readcredits = true;
+  if (stu==false) {lifeAchievements+=1;stu=true;}
+}
+if (screenNum == 7) {
+  // Instructions Screen
+  menu = false;
+  image(instructions,0,0);
+  smartmove = true;
+  if(def==false){lifeAchievements+=1;def=true;}
 }
 if(screenNum==8){
-menu=false;
-image(achievements,0,0);
+  // Achievements screen page 1 (initial screen)
+  menu=false;
+  image(achievements,0,0);
+  
+  // Achievement Images
+  if (makeitrain) {image(BBBmakeitrain,46,106);}
+  else {image(unknown,46,106);}
 
-//A = Make it Rain
-if(makeitrain==false){image(unknown,46,106);}
-else if(makeitrain==true){image(BBBmakeitrain,46,106);}
-//B = Smart Move
-if(smartmove==false){image(unknown,185,106);}
-else if(smartmove==true){image(BBBsmartmove,185,106);}
-//C = Goal Hero
-if(goalmaster==false){image(unknown,323,107);}
-else if(goalmaster==true){image(BBBgoalhero,323,107);}
-//D = Father Time
-if(fathertime==false){image(unknown,467,108);}
-else if(fathertime==true){image(BBBfathertime,467,108);}
-//E = Blow Out
-if(blowout == false){image(unknown,46,317);}
-else if(blowout == true){image(BBBblowout,46,317);}
-//F = Offensive Threat
-if(offensivethreat == false){image(unknown,185,317);}
-else if(offensivethreat == true){image(BBBoffensivethreat,185,317);}
-//G = You the Real MVP
-if(readcredits == false){image(unknown,323,318);}
-else if(readcredits == true){image(BBBreadcredits,323,318);}
-//H = World Champions
-if(worldchamp==false){image(unknown,467,319);}
-else if(worldchamp==true){image(BBBworldchamp,467,319);}
-
-//USED FOR DESCRIPTIONS
-
-if(mouseX>=46 & mouseY>=106 & mouseX<=149 & mouseY<=209){image(ggmakeitrain,82,11);}
-else if(mouseX>=185 & mouseY>=106 & mouseX<=288 & mouseY<=209){image(ggsmartmove,82,11);
-if(smartmove==true){image(surprise,125,53);}}
-else if(mouseX>=323 & mouseY>=107 & mouseX<=426 & mouseY<=210){image(gggoalmaster,82,11);if(goalmaster==true){image(surprise,125,53);}}
-else if(mouseX>=467 & mouseY>=108 & mouseX<=570 & mouseY<=211){image(ggfathertime,82,11);if(fathertime==true){image(surprise,125,53);}}
-else if(mouseX>=46 & mouseY>=317 & mouseX<=149 & mouseY<=420){image(ggonesided,82,11);if(blowout==true){image(surprise,125,53);}}
-else if(mouseX>=185 & mouseY>=317 & mouseX<=288 & mouseY<=420){image(ggoffensivethreat,82,11);if(offensivethreat==true){image(surprise,125,53);}}
-else if(mouseX>=323 & mouseY>=318 & mouseX<=426 & mouseY<=421 & readcredits==false){image(ggrealmvp,82,11);}
-else if(mouseX>=323 & mouseY>=318 & mouseX<=426 & mouseY<=421 & readcredits==true){image(ggrealmvp2,82,11);image(surprise,125,53);}
-else if(mouseX>=467 & mouseY>=319 & mouseX<=570 & mouseY<=422){image(ggworldchampion,82,11);if(worldchamp==true){image(surprise,125,53);}}
-
-
-
+  if (smartmove) {image(BBBsmartmove,185,106);}
+  else {image(unknown,185,106);}
+  
+  if (goalmaster) {image(BBBgoalhero,323,107);}
+  else {image(unknown,323,107);}
+  
+  if (fathertime) {image(BBBfathertime,467,108);}
+  else {image(unknown,467,108);}
+  
+  if (blowout){image(BBBblowout,46,317);}
+  else {image(unknown,46,317);}
+  
+  if (offensivethreat) {image(BBBoffensivethreat,185,317);}
+  else {image(unknown,185,317);}
+  
+  if (readcredits) {image(BBBreadcredits,323,318);}
+  else {image(unknown,323,318);}
+  
+  if (worldchamp) {image(BBBworldchamp,467,319);}
+  else {image(unknown,467,319);}
+  
+  // Description image
+  if(mouseX>=46 & mouseY>=106 & mouseX<=149 & mouseY<=209){image(ggmakeitrain,82,11);}
+  else if(mouseX>=185 & mouseY>=106 & mouseX<=288 & mouseY<=209){image(ggsmartmove,82,11);
+  if(smartmove==true){image(surprise,125,53);}}
+  else if(mouseX>=323 & mouseY>=107 & mouseX<=426 & mouseY<=210){image(gggoalmaster,82,11);if(goalmaster==true){image(surprise,125,53);}}
+  else if(mouseX>=467 & mouseY>=108 & mouseX<=570 & mouseY<=211){image(ggfathertime,82,11);if(fathertime==true){image(surprise,125,53);}}
+  else if(mouseX>=46 & mouseY>=317 & mouseX<=149 & mouseY<=420){image(ggonesided,82,11);if(blowout==true){image(surprise,125,53);}}
+  else if(mouseX>=185 & mouseY>=317 & mouseX<=288 & mouseY<=420){image(ggoffensivethreat,82,11);if(offensivethreat==true){image(surprise,125,53);}}
+  else if(mouseX>=323 & mouseY>=318 & mouseX<=426 & mouseY<=421 & readcredits==false){image(ggrealmvp,82,11);}
+  else if(mouseX>=323 & mouseY>=318 & mouseX<=426 & mouseY<=421 & readcredits==true){image(ggrealmvp2,82,11);image(surprise,125,53);}
+  else if(mouseX>=467 & mouseY>=319 & mouseX<=570 & mouseY<=422){image(ggworldchampion,82,11);if(worldchamp==true){image(surprise,125,53);}}
 }
 
 if(screenNum==14){
-menu=false;
-image(achievements2,0,0);
-
-//A = Diversity Day
-if(diversityday==false){image(unknown,46,106);}
-else if(diversityday==true){image(BBBdiversityday,46,106);}
-//B = Flawless
-if(flawless==false){image(unknown,185,106);}
-else if(flawless==true){image(BBBflawless,185,106);}
-//C = Click, Click, Boom
-if(trifecta==false){image(unknown,323,107);}
-else if(trifecta==true){image(BBBclickclickboom,323,107);}
-//D = One Beats Two
-if(onebeatstwo==false){image(unknown,467,108);}
-else if(onebeatstwo==true){image(BBBonebeatstwo,467,108);}
-//E = David Vs. Goliath
-if(dvsg == false){image(unknown,46,317);}
-else if(dvsg == true){image(BBBdvsg,46,317);}
-//F = Small But Mighty
-if(smallbutmighty == false){image(unknown,185,317);}
-else if(smallbutmighty == true){image(BBBsmallbutmighty,185,317);}
-//G = No Help Needed
-if(nohelpneeded == false){image(unknown,323,318);}
-else if(nohelpneeded == true){image(BBBnohelpneeded,323,318);}
-//H = World Champions x 3
-if(winthreeworlds==false){image(unknown,467,319);}
-else if(winthreeworlds==true){image(BBBwinthreeworlds,467,319);}
-
-//Achievement Descriptions pt. 2
-if(mouseX>=46 & mouseY>=106 & mouseX<=149 & mouseY<=209){image(ggdiversityday,82,11);if(diversityday==true){image(surprise,125,53);}}
-else if(mouseX>=185 & mouseY>=106 & mouseX<=288 & mouseY<=209){image(ggflawless,82,11);if(flawless==true){image(surprise,125,53);}}
-else if(mouseX>=323 & mouseY>=107 & mouseX<=426 & mouseY<=210){image(ggticktickboom,82,11);if(trifecta==true){image(surprise,125,53);}}
-else if(mouseX>=467 & mouseY>=108 & mouseX<=570 & mouseY<=211){image(ggonebeatstwo,82,11);if(onebeatstwo==true){image(surprise,125,53);}}
-else if(mouseX>=46 & mouseY>=317 & mouseX<=149 & mouseY<=420){image(ggdvsg,82,11);if(dvsg==true){image(surprise,125,53);}}
-else if(mouseX>=185 & mouseY>=317 & mouseX<=288 & mouseY<=420){image(ggsmallbutmighty,82,11);if(smallbutmighty==true){image(surprise,125,53);}}
-else if(mouseX>=323 & mouseY>=318 & mouseX<=426 & mouseY<=421){image(ggnohelpneeded,82,11);if(nohelpneeded==true){image(surprise,125,53);}}
-else if(mouseX>=467 & mouseY>=319 & mouseX<=570 & mouseY<=422 & winthreeworlds==false){image(ggtrifecta,82,11);}
-else if(mouseX>=467 & mouseY>=319 & mouseX<=570 & mouseY<=422 & winthreeworlds==true){image(ggtrifecta2,82,11);image(surprise,125,53);}
-
-}
-
-if(screenNum==15){image(advice1,0,0);}
-if(screenNum==16){image(advice2,0,0);}
-if(screenNum==17){image(advice4,0,0);
-
-if(colourOrd==0){stroke(255,0,0);strokeWeight(4);noFill();rect(94,215,79,77);}
-else if(colourOrd==1){stroke(255,0,0);strokeWeight(4);noFill();rect(227,215,79,77);}
-else if(colourOrd==2){stroke(255,0,0);strokeWeight(4);noFill();rect(353,215,79,77);}
-else if(colourOrd==3){stroke(255,0,0);strokeWeight(4);noFill();rect(493,215,79,77);}
-if(colourOrd==4){stroke(255,0,0);strokeWeight(4);noFill();rect(94,310,79,77);}
-else if(colourOrd==5){stroke(255,0,0);strokeWeight(4);noFill();rect(227,310,79,77);}
-else if(colourOrd==6){stroke(255,0,0);strokeWeight(4);noFill();rect(353,310,79,77);}
-else if(colourOrd==7){stroke(255,0,0);strokeWeight(4);noFill();rect(493,310,79,77);}
-
-}
-if(screenNum==18){image(advice10,0,0);}
-if(screenNum==19){image(advice5,0,0);}
-if(screenNum==20){image(advice6,0,0);}
-if(screenNum==21){image(advice7,0,0);}
-if(screenNum==22){image(advice8,0,0);}
-if(screenNum==23){image(advice9,0,0);}
-if(screenNum==24){image(advice3,0,0);
-
-if(fieldOrd==0){stroke(255,0,0);strokeWeight(5);noFill();rect(74,223,104,123);}
-else if(fieldOrd==1){stroke(255,0,0);strokeWeight(5);noFill();rect(210,223,104,123);}
-else if(fieldOrd==2){stroke(255,0,0);strokeWeight(5);noFill();rect(347,223,104,123);}
-else if(fieldOrd==3){stroke(255,0,0);strokeWeight(5);noFill();rect(483,223,104,123);}
-
-}
-if(screenNum==25){image(advice11,0,0);}
-if(screenNum==26){image(advice12,0,0);}
-if(screenNum==27){image(advice13,0,0);}
-if(screenNum==28){image(advice14,0,0);}
-if(screenNum==29){image(advice15,0,0);}
-if(screenNum==30){image(advice16,0,0);}
+  // Achivements screen page 2.
   
-if(menu==true){
-secretSel = 0;
-screenNum=1;
-image(mainMenu,0,0);
+  menu=false;
+  image(achievements2,0,0);
 
-if(mouseX>=150 & mouseX<=510){
+  if (diversityday) {image(BBBdiversityday,46,106);}
+  else {image(unknown,46,106);}
 
-  if(mouseY>=169 & mouseY<=217){noFill();stroke(255,0,0);strokeWeight(6);rect(150,169,360,48);
+  if (flawless) {image(BBBflawless,185,106);}
+  else {image(unknown,185,106);}
 
+  if (trifecta) {image(BBBclickclickboom,323,107);}
+  else {image(unknown,323,107);}
 
-}
-//Tournament
-if(mouseY>=237& mouseY<=285){noFill();stroke(255,0,0);strokeWeight(6);rect(150,237,360,48);
+  if(onebeatstwo) {image(BBBonebeatstwo,467,108);}
+  else {image(unknown,467,108);}
 
-}
-//Instructions
-if(mouseY>=305 & mouseY<=353){noFill();stroke(255,0,0);strokeWeight(6);rect(150,305,360,48);}
-//Acheivments
-if(mouseY>=370 & mouseY<=418){noFill();stroke(255,0,0);strokeWeight(6);rect(150,370,360,48);}
-//Credits
-if(mouseY>=436 & mouseY<=484){noFill();stroke(255,0,0);strokeWeight(6);rect(150,436,360,48);}
+  if(dvsg){image(BBBdvsg,46,317);}
+  else {image(unknown,46,317);}
 
-}
+  if(smallbutmighty){image(BBBsmallbutmighty,185,317);}
+  else {image(unknown,185,317);}
 
+  if(nohelpneeded){image(BBBnohelpneeded,323,318);}
+  else {image(unknown,323,318);}
+
+  if (winthreeworlds){image(BBBwinthreeworlds,467,319);}
+  else {image(unknown,467,319);}
   
+  //Achievement Descriptions
+  if(mouseX>=46 & mouseY>=106 & mouseX<=149 & mouseY<=209){image(ggdiversityday,82,11);if(diversityday==true){image(surprise,125,53);}}
+  else if(mouseX>=185 & mouseY>=106 & mouseX<=288 & mouseY<=209){image(ggflawless,82,11);if(flawless==true){image(surprise,125,53);}}
+  else if(mouseX>=323 & mouseY>=107 & mouseX<=426 & mouseY<=210){image(ggticktickboom,82,11);if(trifecta==true){image(surprise,125,53);}}
+  else if(mouseX>=467 & mouseY>=108 & mouseX<=570 & mouseY<=211){image(ggonebeatstwo,82,11);if(onebeatstwo==true){image(surprise,125,53);}}
+  else if(mouseX>=46 & mouseY>=317 & mouseX<=149 & mouseY<=420){image(ggdvsg,82,11);if(dvsg==true){image(surprise,125,53);}}
+  else if(mouseX>=185 & mouseY>=317 & mouseX<=288 & mouseY<=420){image(ggsmallbutmighty,82,11);if(smallbutmighty==true){image(surprise,125,53);}}
+  else if(mouseX>=323 & mouseY>=318 & mouseX<=426 & mouseY<=421){image(ggnohelpneeded,82,11);if(nohelpneeded==true){image(surprise,125,53);}}
+  else if(mouseX>=467 & mouseY>=319 & mouseX<=570 & mouseY<=422 & winthreeworlds==false){image(ggtrifecta,82,11);}
+  else if(mouseX>=467 & mouseY>=319 & mouseX<=570 & mouseY<=422 & winthreeworlds==true){image(ggtrifecta2,82,11);image(surprise,125,53);}
+}
+
+if (screenNum==15) {image(advice1,0,0);} // Advice image 
+if (screenNum==16) {image(advice2,0,0);} // Advice Image
+
+if (screenNum == 17) {
+  // Change the ball colour achivement screen
+  image(advice4,0,0); 
+
+  if (colourOrd == 0) {stroke(255,0,0);strokeWeight(4);noFill();rect(94,215,79,77);}
+  else if (colourOrd == 1) {stroke(255,0,0);strokeWeight(4);noFill();rect(227,215,79,77);}
+  else if (colourOrd == 2) {stroke(255,0,0);strokeWeight(4);noFill();rect(353,215,79,77);}
+  else if (colourOrd == 3) {stroke(255,0,0);strokeWeight(4);noFill();rect(493,215,79,77);}
+  if (colourOrd == 4) {stroke(255,0,0);strokeWeight(4);noFill();rect(94,310,79,77);}
+  else if (colourOrd == 5) {stroke(255,0,0);strokeWeight(4);noFill();rect(227,310,79,77);}
+  else if (colourOrd == 6) {stroke(255,0,0);strokeWeight(4);noFill();rect(353,310,79,77);}
+  else if (colourOrd == 7) {stroke(255,0,0);strokeWeight(4);noFill();rect(493,310,79,77);}
+}
+
+if (screenNum == 18) {image(advice10,0,0);}
+if (screenNum == 19) {image(advice5,0,0);}
+if (screenNum == 20) {image(advice6,0,0);}
+if (screenNum == 21) {image(advice7,0,0);}
+if (screenNum == 22) {image(advice8,0,0);}
+if (screenNum == 23) {image(advice9,0,0);}
+
+if (screenNum == 24) {
+  // Change field design, achivement screen
+  image(advice3,0,0);
+
+  if (fieldOrd == 0) {stroke(255,0,0);strokeWeight(5);noFill();rect(74,223,104,123);}
+  else if (fieldOrd == 1) {stroke(255,0,0);strokeWeight(5);noFill();rect(210,223,104,123);}
+  else if (fieldOrd == 2) {stroke(255,0,0);strokeWeight(5);noFill();rect(347,223,104,123);}
+  else if (fieldOrd == 3) {stroke(255,0,0);strokeWeight(5);noFill();rect(483,223,104,123);}
+
+}
+
+if (screenNum == 25) {image(advice11,0,0);}
+if (screenNum == 26) {image(advice12,0,0);}
+if (screenNum == 27) {image(advice13,0,0);}
+if (screenNum == 28) {image(advice14,0,0);}
+if (screenNum == 29) {image(advice15,0,0);}
+if (screenNum == 30) {image(advice16,0,0);}
+  
+if (menu == true) {
+  // Main menu screen
+  secretSel = 0;
+  screenNum=1;
+  image(mainMenu,0,0);
+
+  if (mouseX>=150 & mouseX<=510) {
+    // Quick play
+    if (mouseY>=169 & mouseY<=217) {noFill();stroke(255,0,0);strokeWeight(6);rect(150,169,360,48);}
+    //Tournament
+    if (mouseY>=237& mouseY<=285) {noFill();stroke(255,0,0);strokeWeight(6);rect(150,237,360,48);}
+    //Instructions
+    if (mouseY>=305 & mouseY<=353) {noFill();stroke(255,0,0);strokeWeight(6);rect(150,305,360,48);}
+    //Acheivments
+    if (mouseY>=370 & mouseY<=418) {noFill();stroke(255,0,0);strokeWeight(6);rect(150,370,360,48);}
+    //Credits
+    if (mouseY>=436 & mouseY<=484) {noFill();stroke(255,0,0);strokeWeight(6);rect(150,436,360,48);}
+  } 
 }
 
 if(tourney==true & tourneyBegin == false){
 
-  if(secretSel==0){
-background(selCount);}
-else if(secretSel==1){background(selcount2);}
-else if(secretSel==2){background(selcount3);}
+  
+  // Update with the secret countries if they're unlocked
+  if (secretSel == 1) {background(selcount2);}
+  else if (secretSel == 2) {background(selcount3);}
+  else {background(selCount);}
 
-if(keyPressed){
-if(key=='!'){
-secretSel=1;}
-
-if(key == '*' & secretSel==1){secretSel=2;}
-}
+  // Let's the user select secret countries if they know the secret
+  if(keyPressed){
+    if(key=='!'){
+    secretSel=1;}
+    
+    if(key == '*' & secretSel==1){secretSel=2;}
+  }
 
 
 //Italy
-if(mouseX>=487 & mouseX<=650 & mouseY>=135 & mouseY<=286 & screenNum<90){rect(487,135,161,151);}
-//USA
-else if(mouseX>=316 & mouseX<=487 & mouseY>=135 & mouseY<=286 & screenNum<90){rect(316,135,171,151);}
-//Germany
-else if(mouseX>=149 & mouseX<=316 & mouseY>=135 & mouseY<=286 & screenNum<90){rect(149,135,166,151);}
-//China
-else if(mouseX>=0 & mouseX<=149 & mouseY>=135 & mouseY<=286 & screenNum<90){rect(0,135,151,151);}
-//Spain
-else if(mouseX>=487 & mouseX<=650 & mouseY>=287 & mouseY<=505 & screenNum<90){rect(487,287,161,166);}
-//UK
-else if(mouseX>=316 & mouseX<=487 & mouseY>=287 & mouseY<=505 & screenNum<90){rect(316,287,171,166);}
-//Canada
-else if(mouseX>=149 & mouseX<=316 & mouseY>=287 & mouseY<=505 & screenNum<90){rect(149,287,166,166);}
-//Russia
-else if(mouseX>=0 & mouseX<=149 & mouseY>=287 & mouseY<=505 & screenNum<90){rect(0,287,151,166);}
-//Brazil
-else if(mouseX>=146 & mouseY>=0 & mouseX<=306 & mouseY<=135 & secretSel>0){rect(146,0,160,135);}
-//France
-else if(mouseX>=306 & mouseY>=0 & mouseX<=466 & mouseY<=135 & secretSel>0){rect(306,0,175,135);}
-//Portugal
-else if(mouseX>=0 & mouseY>=0 & mouseX<=146 & mouseY<=135 & secretSel>1){rect(0,0,146,135);}
-//Argentina
-else if(mouseX>=475 & mouseY>=0 & mouseX<=650 & mouseY<=135 & secretSel>1){rect(475,0,175,135);}
+  if(mouseX>=487 & mouseX<=650 & mouseY>=135 & mouseY<=286 & screenNum<90){rect(487,135,161,151);}
+  //USA
+  else if(mouseX>=316 & mouseX<=487 & mouseY>=135 & mouseY<=286 & screenNum<90){rect(316,135,171,151);}
+  //Germany
+  else if(mouseX>=149 & mouseX<=316 & mouseY>=135 & mouseY<=286 & screenNum<90){rect(149,135,166,151);}
+  //China
+  else if(mouseX>=0 & mouseX<=149 & mouseY>=135 & mouseY<=286 & screenNum<90){rect(0,135,151,151);}
+  //Spain
+  else if(mouseX>=487 & mouseX<=650 & mouseY>=287 & mouseY<=505 & screenNum<90){rect(487,287,161,166);}
+  //UK
+  else if(mouseX>=316 & mouseX<=487 & mouseY>=287 & mouseY<=505 & screenNum<90){rect(316,287,171,166);}
+  //Canada
+  else if(mouseX>=149 & mouseX<=316 & mouseY>=287 & mouseY<=505 & screenNum<90){rect(149,287,166,166);}
+  //Russia
+  else if(mouseX>=0 & mouseX<=149 & mouseY>=287 & mouseY<=505 & screenNum<90){rect(0,287,151,166);}
+  //Brazil
+  else if(mouseX>=146 & mouseY>=0 & mouseX<=306 & mouseY<=135 & secretSel>0){rect(146,0,160,135);}
+  //France
+  else if(mouseX>=306 & mouseY>=0 & mouseX<=466 & mouseY<=135 & secretSel>0){rect(306,0,175,135);}
+  //Portugal
+  else if(mouseX>=0 & mouseY>=0 & mouseX<=146 & mouseY<=135 & secretSel>1){rect(0,0,146,135);}
+  //Argentina
+  else if(mouseX>=475 & mouseY>=0 & mouseX<=650 & mouseY<=135 & secretSel>1){rect(475,0,175,135);}
 
 
 //Country Descriptions
@@ -1108,9 +1112,9 @@ chooser = round(random(1,8));
   
   
 //Timer
-if(game==true & maceroni == true){
-float time = millis()-timex;}
-else{timex = millis();}
+//if(game==true & maceroni == true){
+//float time = millis()-timex;}
+//else{timex = millis();}
 
 
 //If game is true, run a game
